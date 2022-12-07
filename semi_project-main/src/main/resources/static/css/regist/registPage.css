@@ -1,0 +1,223 @@
+@charset "UTF-8";
+
+table {
+	border-collapse: separate;
+	border-spacing: 8px;
+}
+
+.regist_container {
+	width: 600px;
+	height: 1300px;
+}
+
+td {
+	line-height: 30px;
+}
+
+
+/* 이름, 이메일, 주소 input  */
+.regist {
+	width: 250px;
+	height: 40px;
+	font-size: 0.9em;
+}
+
+.regist:focus {
+	background: #80ffff;
+	color: black;
+}
+
+
+/* ID */
+.memberId {
+	width: 250px;
+	height: 40px;
+	font-size: 0.9em;
+}
+
+.memberId:focus {
+	background: #80ffff;
+	color: black;
+}
+
+/* 비밀번호 입력, 재입력 */
+.pwcheck {
+	width: 250px;
+	height: 40px;
+	font-size: 0.9em;
+}
+
+.pwcheck:focus {
+	background: #80ffff;
+	color: black;
+}
+
+
+/* Email */
+.email {
+	width: 250px;
+	height: 40px;
+	font-size: 0.9em;
+}
+
+.email:focus {
+	background: #80ffff;
+	color: black;
+}
+
+/* 약간 동의 */
+[type="radio"] {
+  vertical-align: middle;
+  appearance: none;
+  border: max(2px, 0.1em) solid gray;
+  border-radius: 50%;
+  width: 2em;
+  height: 2em;
+  transition: border 0.5s ease-in-out;
+}
+
+[type="radio"]:checked {
+  border: 1em solid #7dd1d1;
+}
+
+
+[type="radio"]:hover {
+  box-shadow: 0 0 0 max(4px, 0.2em) lightgray;
+  cursor: pointer;
+}
+
+
+/* 휴대전화*/
+.phone {
+	width: 250px;
+	height: 40px;
+	font-size: 0.9em;
+}
+
+.phone:focus {
+	background: #80ffff;
+	color: black;
+}
+
+/* 약관 동의 */
+
+.agree {
+	text-align: center;
+}
+
+#agree {
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 50%;
+    border: 1px solid #999;
+    appearance: none;
+    cursor: pointer;
+    transition: background 0.2s;
+ }
+
+#agree:checked {
+    background: #32e732;
+    border: none;
+}
+
+
+
+/* ID 중복 체크 */
+.btn_duplicationCheck {
+	width: 130px;
+	height: 35px;
+	box-shadow: 1px 4px 0px 0px #64b8b9;
+	background-color: #77cfd1;
+	border-radius: 15px;
+	border: 1px solid #6fb6b8;
+	cursor: pointer;
+	color: #ffffff;
+	font-size: 13px;
+	font-weight: bold;
+	padding: 10px 17px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #c2c1c1;
+	margin: 0 5px;
+}
+
+
+/* 우편번호 */
+
+.btn_zipCode {
+	box-shadow: 1px 4px 0px 0px #64b8b9;
+	background-color: #77cfd1;
+	border-radius: 15px;
+	border: 1px solid #6fb6b8;
+	cursor: pointer;
+	color: #ffffff;
+	font-size: 13px;
+	font-weight: bold;
+	padding: 10px 17px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #c2c1c1;
+	margin: 0 5px;
+	width: 80px;
+	height: 40px;
+}
+
+/* 이메일 인증 */
+
+.btn_checkEmail {
+	box-shadow: 1px 4px 0px 0px #64b8b9;
+	background-color: #77cfd1;
+	border-radius: 15px;
+	border: 1px solid #6fb6b8;
+	display: inline-block;
+	cursor: pointer;
+	color: #ffffff;
+	font-size: 13px;
+	font-weight: bold;
+	padding: 10px 17px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #c2c1c1;
+	margin: 0 5px;
+	width: 120px;
+	height: 40px;
+}
+
+
+
+
+/* 가입 */
+.send {
+	box-shadow: 1px 4px 0px 0px #64b8b9;
+	background-color: #77cfd1;
+	border-radius: 15px;
+	border: 1px solid #6fb6b8;
+	cursor: pointer;
+	color: #ffffff;
+	font-size: 13px;
+	font-weight: bold;
+	padding: 10px 17px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #c2c1c1;
+	margin: 0 15px;
+}
+
+.send:disabled {
+  background: #ccc;
+  border: 1px solid white;
+  	box-shadow: 1px 4px 0px 0px ;
+  
+}
+
+/* 취소*/
+.send_cancel {
+	box-shadow: 1px 4px 0px 0px #bbbaba;
+	background-color: #ffffff;
+	border-radius: 15px;
+	border: 1px solid #707070;
+	cursor: pointer;
+	color: black;
+	font-size: 13px;
+	font-weight: bold;
+	padding: 10px 17px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #c2c1c1;
+	margin: 0 5px;
+}

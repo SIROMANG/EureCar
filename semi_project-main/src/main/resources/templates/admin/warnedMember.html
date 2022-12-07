@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" th:href="@{/css/admin.css}">
+<script type="text/javascript" th:src="@{/js/event.js}"></script>
+<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+      $( document ).ready( function() {
+        $( '.check-all' ).click( function() {
+          $( '.check' ).prop( 'checked', this.checked );
+        } );
+      } );
+</script>
+<script>
+	const message = '[[${message}]]';
+	message && alert(message);
+</script>
+</head>
+<body>
+<section id="all-wrapper">
+	<div th:replace="common/header.html"></div>
+	
+		
+		 <aside>
+                <nav class="layout_left">
+                    <a href ="#" onclick="location.href='/admin/search'"> 회원정보조회</a> 
+                    <a href ="#" onclick="location.href='/admin/warnedmember'"> 신고누적회원조회</a>
+                    <a href ="#" onclick="location.href='/admin/warnedlist'"> 신고목록조회</a>
+                </nav>
+        </aside>
+        
+	<!--체크박스+누적횟수 구역-->
+            <div class="part_top">
+
+                 <!--전체 체크박스-->
+                <div class="checkarea">
+                    <input type=checkbox class="check-all">
+                    <label>전체체크</label>
+                    <button>삭제</button>
+                </div>
+                
+               
+
+                <!--누적횟수 조회-->
+                <div class="part2">
+                    누적횟수: <select>
+                        <option> 1회 </option>
+                        <option> 2회 </option>
+                        <option> 3회 이상</option>
+                        </select>
+                        <button>확인</button>
+                </div>
+              
+                
+            </div>
+	
+	
+	
+		
+		<div class="table-area" style="text-align: center;">
+			<table class="member" style="margin: auto;">
+				<tr>
+					<th >체크</th>
+					<th >성명</th>
+					<th >아이디</th>
+					<th >생년월일</th>
+					<th >휴대전화</th>
+					<th >가입일</th>
+					<th >회원삭제</th>
+				 </tr>
+			
+                   
+                   
+				 <tr th:each="member : ${ warnedMember }"
+				   
+				    style="cursor:pointer;" >
+					<td><input type=checkbox class="check"></td>
+					<td th:text="${ member.name }"></td>
+					<td th:text="${ member.memberId }"></td>
+					<td th:text="${ member.birthday }"></td>
+					<td th:text="${ member.phone }"></td>
+					<td th:text="${ member.enrolldate }"></td>
+					<td><button submit="delete">삭제</button></td>
+				</tr>
+			
+			</table>
+		</div>
+			
+				
+			<div class="paging" align="center" style="margin-top:30px;">
+
+			<th:block th:if="${ searchValue != null }">
+				<!-- 맨앞 -->
+				<button
+					th:onclick="'location.href=\'/admin/warnedmember?page=' + @{${paging.startPage}} + '&searchValue=' + @{${searchValue}} + '\''">&lt;&lt;</button>
+					
+				<!-- 이전 페이지 -->
+				<button
+					th:onclick="'location.href=\'/admin/warnedmember?page=' + @{${paging.currentPage - 1}} + '&searchValue=' + @{${searchValue}} + '\''"
+					th:disabled="${ warnedMember.first }">&lt;</button>
+					
+				<!-- 숫자 버튼 -->
+				<th:block
+					th:each="page : ${ #numbers.sequence(paging.startPage, paging.endPage)}">
+					<button
+						th:onclick="'location.href=\'/admin/warnedmember?page=' + @{${page}} + '&searchValue=' + @{${searchValue}} + '\''"
+						th:text="${ page }" th:disabled="${ paging.currentPage eq page }">
+					</button>
+				</th:block>
+				
+				<!-- 다음 페이지로 이동 -->
+				<button
+					th:onclick="'location.href=\'/admin/warnedmember?page=' + @{${paging.currentPage + 1}} + '&searchValue=' + @{${searchValue}} + '\''"
+					th:disabled="${ warnedMember.last }">></button>
+				
+				<!-- 맨 끝으로 이동 -->
+				<button
+					th:onclick="'location.href=\'/admin/warnedmember?page=' + @{${paging.endPage}} + '&searchValue=' + @{${searchValue}} + '\''">>></button>
+
+			</th:block>
+				
+				
+				
+			<th:block th:if="${ param.searchValue == null || param.searchValue.isEmpty() }">
+				<!-- 맨 앞으로 이동 -->
+				<button
+					th:onclick="'location.href=\'/admin/warnedmember?page=' + @{${paging.startPage}} + '\''">&lt;&lt;</button>
+
+			<!-- 이전 페이지로 이동 -->
+				<button
+					th:onclick="'location.href=\'/admin/warnedmember?page=' + @{${paging.currentPage - 1}} + '\''"
+					th:disabled="${ warnedMember.first }">&lt;</button>
+					
+			<!-- 숫자 버튼 -->
+				<th:block
+					th:each="page : ${ #numbers.sequence(paging.startPage, paging.endPage)}">
+					<button
+						th:onclick="'location.href=\'/admin/warnedmember?page=' + @{${page}} + '\''"
+						th:text="${ page }" th:disabled="${ paging.currentPage eq page }">
+					</button>
+				</th:block>
+				
+			<!-- 다음 페이지로 이동 -->
+				<button
+					th:onclick="'location.href=\'/admin/warnedmember?page=' + @{${paging.currentPage + 1}} + '\''"
+					th:disabled="${ warnedMember.last }">></button>
+
+				<!-- 맨 끝으로 이동 -->
+				<button
+					th:onclick="'location.href=\'/admin/warnedmember?page=' + @{${paging.endPage}} + '\''">>></button>
+			</th:block>
+			</div>	  
+		
+				
+			
+
+</section>
+	
+	<div th:fragment="footerFragment" class="adminfooter">
+	<div>
+	    <h3>유레카</h3>
+	    <ul class="footer-info">
+	        <li>사업자등록번호: 123-88-45679</li>
+	        <li style="display: flex; justify-content: space-between;"><p>대표자 : 박상연</p><p>대표 메일 : EureCar@greedy.com</p></li>
+	        <li>주소 : 서울특별시 종로구 인사동길12 대일빌딩 15층</li>
+	        <li>개인정보관리책임자 : 김동영</li>
+	        <li>COPYRIGHTⓒ 유레카 ALL RIGHTS RESERVED</li>
+	    </ul>
+	</div>
+	</div>
+	
+</body>
+</html>

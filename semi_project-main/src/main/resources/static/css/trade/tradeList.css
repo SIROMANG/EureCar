@@ -1,0 +1,140 @@
+@charset "UTF-8";
+.list-title {
+    display: flex;
+    width: 1200px;
+    margin-bottom: 50px;
+}
+.search {
+    position: relative;
+    width: 180px;
+    margin-top: 25px;
+    margin-left: auto;
+}  
+.search input {
+    width: 90%;
+    border: 1px solid #bbb;
+    border-radius: 20px;
+    padding: 10px 12px;
+    font-size: 12px;
+}
+.search img {
+    position : absolute;
+    width: 15px;
+    top: 10px;
+    right: 35px;
+    margin: 0;
+    cursor: pointer;
+}
+.search button {
+	padding: 0;
+	border: none;
+	background: none;
+}
+.search input:focus {
+    outline: 2px solid #77CFD1;
+}
+.category button{
+	padding: 10px 17px;
+	width: 150px;
+	cursor: pointer;
+	box-shadow: 1px 4px 0px 0px #bbbaba;
+	background-color:#ffffff;
+	border-radius:15px;
+    border:1px solid #707070;
+    color:black;
+	font-size:13px;
+	font-weight:bold;
+}
+.category button:active {
+	position:relative;
+	top:2px;
+}
+.category-area {
+    width: 1200px;
+    background-color: #9ee6e7;
+    border-radius: 20px;
+}
+.select input[type=radio]{
+    display: none;
+}
+.select input[type=radio]+label{
+    display: inline-block;
+    cursor: pointer;
+    height: 28px;
+    width: 50px;
+    border-radius: 15px;
+    line-height: 24px;
+    text-align: center;
+    font-size:12px;
+    font-weight: bold;
+    padding-top: 2px;
+}
+.select input[type=radio]+label{
+    background-color: #fff;
+    color: #3d3d3d;
+}
+.select input[type=radio]:checked+label{
+    background-color: #5bc3c5;
+}
+select {
+    width: 120px;
+    height: 25px;
+    text-align: center;
+    border-radius: 8px;
+    border: 1px solid #77CFD1;
+    -ms-overflow-style: none;
+}
+select::-webkit-scrollbar {
+    display:none;
+}
+.container1 {
+    width: 1050px;
+    display: flex;
+    margin: 0 30px;
+    text-align: center;
+}
+.container1-item {
+	padding: 15px;
+    width: 33%;
+    margin: 5px auto;
+}
+.container2 {
+	width: 1050px;
+    display: flex;
+    margin: 0 30px;
+    text-align: center;
+}
+.container2-item {
+	padding: 15px;
+    width: 33%;
+    margin: 5px auto;
+}
+.trade-title {
+    font-weight: bold;
+    font-size: 17px;
+}
+.trade-des {
+    color: #757575;
+    font-size: 13px;
+}
+.trade-price {
+    color: #77CFD1;
+    font-weight: bold;
+}
+hr {
+	background-color: #77CFD1;
+	height: 3px;
+	border: 0;
+}
+.paid p {
+	margin-bottom: 7px;
+}
+.paging button {
+	font-size: 18px;
+	border: none;
+	background: none;
+	cursor: pointer;
+}
+.paging button:active {
+	color: #77CFD1;
+}

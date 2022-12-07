@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+/* 결제 페이지 */
+
+ .payment_container {
+  width: 600px;
+  height: 500px;
+		
+}
+/* 결제 금액 */
+.payMethod{
+  vertical-align: middle;
+  appearance: none;
+  border: max(2px, 0.1em) solid gray;
+  border-radius: 50%;
+  width: 2em;
+  height: 2em;
+  transition: border 0.5s ease-in-out;
+}
+
+.payMethod:checked {
+  border: 1em solid #7dd1d1;
+}
+
+.payMethod:hover {
+  box-shadow: 0 0 0 max(4px, 0.2em) lightgray;
+  cursor: pointer;
+}
+
+.payMethod:disabled {
+  background-color: lightgray;
+  box-shadow: none;
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* 제목 */
+.title{
+	text-align : left;
+}
+
+/* 결제 */
+.btn_pay {
+	box-shadow: 1px 4px 0px 0px #64b8b9;
+	background-color:#77cfd1;
+	border-radius:15px;
+    border:1px solid #6fb6b8;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:13px;
+	font-weight:bold;
+	padding:10px 17px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #c2c1c1;
+    margin: 0 5px;
+}
+
+/* 취소 */
+.btn_cancel {
+	box-shadow: 1px 4px 0px 0px #bbbaba;
+	background-color:#ffffff;
+	border-radius:15px;
+	border:1px solid #707070;
+	cursor:pointer;
+	color:black;
+	font-size:13px;
+	font-weight:bold;
+	padding:10px 17px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #c2c1c1;
+    margin: 0 5px;
+}
+
+
+/* 결제 방식 */
+select {
+
+    width: 200px; 
+    padding: .8em .5em; 
+    border: 1px solid #999;
+    border-radius: 0px; 
+}
